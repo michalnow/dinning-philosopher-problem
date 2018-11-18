@@ -5,10 +5,10 @@ import pl.michal.philosoper.Philosopher;
 import pl.michal.waiter.Waiter;
 
 public class AppStart {
-	final static String[] names = { "Archimedes", "Sokrates", "Platon", "Arystoteles", "Zenon", "Anaksagoras" };
+	final static String[] names = { "Archimedes", "Sokrates", "Platon", "Arystoteles", "Zenon", "Anaksagoras" , "Odys" , "Panoramix" , "Kloptfeusz"};
 	final static int PHILOSOPHERS_QUANTITY = 5;
 	final static int KNIVES_QUANTITY = 3;
-	final static int FORKS_QUANTITY = 4;
+	final static int FORKS_QUANTITY = 2;
 
 	public static void main(String[] args) {
 		Waiter waiter = new Waiter(FORKS_QUANTITY, KNIVES_QUANTITY);
