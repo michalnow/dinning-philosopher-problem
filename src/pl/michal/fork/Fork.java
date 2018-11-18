@@ -20,5 +20,11 @@ public class Fork implements CutleryUsage {
 	
 	public boolean isBeingUsed() {
 		return isBeingUsed;
+	}
+
+	public void setBeingUsed(boolean isBeingUsed) {
+		this.isBeingUsed = isBeingUsed;
 	} 
+	
+	
 }
