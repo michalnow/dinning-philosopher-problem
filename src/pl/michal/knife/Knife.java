@@ -22,6 +22,10 @@ public class Knife implements CutleryUsage {
 		return isBeingUsed;
 	}
 
+	public void setBeingUsed(boolean isBeingUsed) {
+		this.isBeingUsed = isBeingUsed;
+	}
+
 	
 	
 }
