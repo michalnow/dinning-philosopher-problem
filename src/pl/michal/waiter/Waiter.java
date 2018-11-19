@@ -31,8 +31,9 @@ public class Waiter {
 	}
 
 	public synchronized void provideFork() {
-		if (forks.size() != 0)
+		if (forks.size() != 0) {
 			forks.remove(0);
+		}
 		else {
 			try {
 				wait();
@@ -43,8 +44,9 @@ public class Waiter {
 	}
 
 	public synchronized void provideKnife() {
-		if (knives.size() != 0)
+		if (knives.size() != 0) {
 			knives.remove(0);
+		}
 		else {
 			try {
 				wait();
