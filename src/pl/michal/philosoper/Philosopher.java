@@ -1,17 +1,13 @@
 package pl.michal.philosoper;
 
-import pl.michal.fork.Fork;
-import pl.michal.knife.Knife;
 import pl.michal.waiter.Waiter;
 
 public class Philosopher implements Runnable {
 
 	private Waiter waiter;
-	private Fork fork;
-	private Knife knife;
 	private int hungryLevel;
 	private String name;
-	private int eatTurns = 0;
+
 
 	public Philosopher(Waiter waiter, String name) {
 		this.waiter = waiter;
@@ -19,51 +15,45 @@ public class Philosopher implements Runnable {
 		this.name = name;
 	}
 
+	private void delay(int sec) {
+		try {
+			Thread.sleep((long) (sec * 1000 * Math.random() + 1000));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void eat(int amount) {
+		while (hungryLevel < amount) {
+
+			delay(3);
+			System.out.println(String.format("%s IS EATING", name));
+			hungryLevel++;
+			delay(4);
+
+		}
+		
+		hungryLevel = 0;
+	}
+
 	@Override
 	public void run() {
 
-		System.out.println(name + " IS THINKING...");
-		//while (eatTurns < 3) {
-			waiter.provideFork();
-			waiter.provideKnife();
-			try {
-				Thread.sleep((long) (4000 * Math.random() + 1000));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		System.out.println(String.format("%s IS THINKING...", name));
 
-			System.out.println(name + " took knife and fork");
-			while (hungryLevel < 3) {
-				try {
-					Thread.sleep((long) (3000 * Math.random() + 1000));
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		waiter.provideFork();
+		waiter.provideKnife();
+		delay(4);
 
-				System.out.println(name + " IS EATING");
-				hungryLevel++;
+		System.out.println(String.format("%s took knife and fork", name));
+		eat(3);
 
-					try {
-						Thread.sleep((long) (4000 * Math.random() + 1000));
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+		System.out.println(String.format("\n%s IS GIVING BACK CUTLERY", name));
+		waiter.takeBackCutlery();
+		System.out.println(String.format("\n%s IS BACK TO THINKING", name));
 
-			}
-			hungryLevel = 0;
-			//eatTurns++;
-			System.out.println(name + " GIVING BACK CUTLERY");
-			waiter.takeBackCutlery();
-			System.out.println(name + " IS BACK TO THINKING");
-
-			try {
-				Thread.sleep((long) (3000 * Math.random() + 1000));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		//}
-
-		System.out.println("\n\n" + name + " is full. He can work in peace \n\n");
+		delay(1);
+		System.out.println(String.format("\n%s is full. He can work in peace\n", name));
 	}
 
 }
