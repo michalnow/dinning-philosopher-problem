@@ -5,8 +5,11 @@ import pl.michal.philosoper.Philosopher;
 import pl.michal.waiter.Waiter;
 
 public class AppStart {
-	final static String[] names = { "Archimedes", "Sokrates", "Platon", "Arystoteles", "Zenon", "Anaksagoras" , "Odys" , "Panoramix" , "Kloptfeusz"};
-	final static int PHILOSOPHERS_QUANTITY = 5;
+	final static String[] names = {
+			"Archimedes", "Sokrates", "Platon", "Arystoteles", "Zenon", "Anaksagoras" , "Odys" , "Panoramix" , "Kloptfeusz",
+			"Xenoneusz" , "Loptfeusz" , "Zaranktos" ,"Uletes"
+			};
+	final static int PHILOSOPHERS_QUANTITY = 7;
 	final static int KNIVES_QUANTITY = 3;
 	final static int FORKS_QUANTITY = 2;
 
